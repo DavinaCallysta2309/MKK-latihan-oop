@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>latihan oop</title>
+</head>
+<body>
+    <script>
+        // membuat fungsi nya
+        function Person(Firstname, Lastname, Age){
+            // membuat properti
+            this.Firstname = Firstname;
+            this.Lastname = Lastname;
+            this.Age = Age;
+
+            // method
+            this.ShowDetails = function(){
+                console.log(`hai mass bro namaku ${Firstname} ${Lastname} umur saya ${Age} bulan`)
+            }
+        }
+        // membuat objek nya
+        const ambatukam = new Person("Rahul", "ambatukaaam", "15");
+        ambatukam.ShowDetails();
+
+
+    </script>
+</body>
+</html>

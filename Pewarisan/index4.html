@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan oop</title>
+</head>
+<body>
+    <script>
+        // membuat parent class nya 
+     class Buku{
+        constructor(JudulBuku, PenulisBuku, TahunTerbit){
+           this.JudulBuku = JudulBuku;
+           this.PenulisBuku = PenulisBuku;
+           this.TahunTerbit = TahunTerbit;
+        }
+        // metode
+        BukuDetails(){
+            console.log(`Buku ini berjudul ${this.JudulBuku} yang di tulis oleh ${this.PenulisBuku} terbit ${this.TahunTerbit}`);
+            
+        }
+     }
+    // membuat sub class nya
+     class BukuElektronik extends Buku{
+        // override(parameter parent class nya dimasukin)
+          constructor(JudulBuku, PenulisBuku, TahunTerbit, HargaBuku){
+           super(JudulBuku, PenulisBuku, TahunTerbit);
+           this.HargaBuku = HargaBuku;
+          }
+        // membuat metode mengambil metode dari parent class nya
+        BukuDetails(){
+            super.BukuDetails();
+            console.log(`Harga buku ini ${this.HargaBuku}`);
+            
+        }
+     }
+// membuat instance nya
+    const detailBuku = new BukuElektronik("Kimi no nawa", "Hayato", "2018", "100k");
+    detailBuku.BukuDetails();
+    </script>
+</body>
+</html>

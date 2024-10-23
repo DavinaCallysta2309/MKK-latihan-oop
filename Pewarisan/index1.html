@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan oop </title>
+</head>
+<body>
+    <script>
+        // membuat class nya
+    class PersegiPanjang {
+        constructor(panjang, lebar) {
+        this.panjang = panjang;
+        this.lebar = lebar;
+    }
+// methode
+    hitungLuas() {
+        return this.panjang * this.lebar;
+    }
+
+    hitungKeliling() {
+        return 2 * (this.panjang + this.lebar);
+    }
+}
+
+// Membuat instance class PersegiPanjang
+const persegiPanjang = new PersegiPanjang(20, 5);
+
+// Menghitung luas dan kelilingnya
+// memanggil instance dan method nya
+console.log("Luas: " + persegiPanjang.hitungLuas());   
+console.log("Keliling: " + persegiPanjang.hitungKeliling());
+    </script>
+</body>
+</html>

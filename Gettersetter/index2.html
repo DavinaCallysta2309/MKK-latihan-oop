@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getter dan Setter Soal No 3</title>
+</head>
+<body>
+    <script>
+class RekeningBank {
+            static daftarRekening = []; // Menyimpan semua nomor rekening
+
+            constructor(nomorRekening, saldoAwal) {
+                this.nomorRekening = nomorRekening; // Menggunakan setter
+                this.saldo = saldoAwal;
+            }
+
+            // Setter untuk nomor rekening
+            set nomorRekening(nomor) {
+                if (RekeningBank.daftarRekening.includes(nomor)) {
+                    throw new Error(`Nomor rekening ${nomor} sudah terdaftar.`);
+                }
+                this._nomorRekening = nomor; // Menyimpan nomor rekening
+                RekeningBank.daftarRekening.push(nomor); // Menambahkan nomor rekening ke daftar
+            }
+
+            // Getter untuk nomor rekening
+            get nomorRekening() {
+                return this._nomorRekening;
+            }
+
+            // Method untuk menyetor uang
+            setorUang(jumlah) {
+                this.saldo += jumlah;
+                console.log(`Uang sebesar ${jumlah} disetorkan. Saldo sekarang: ${this.saldo}`);
+            }
+
+            // Method untuk menarik uang
+            tarikUang(jumlah) {
+                if (jumlah > this.saldo) {
+                    console.log(`Saldo tidak cukup untuk menarik ${jumlah}. Saldo sekarang: ${this.saldo}`);
+                } else {
+                    this.saldo -= jumlah;
+                    console.log(`Uang sebesar ${jumlah} ditarik. Saldo sekarang: ${this.saldo}`);
+                }
+            }
+
+            // Method untuk menampilkan saldo
+            cekSaldo() {
+                console.log(`Saldo saat ini: ${this.saldo}`);
+            }
+        }
+
+        // Membuat 3 instance dari class RekeningBank
+        
+            let rekening1 = new RekeningBank("001", 1000);
+            let rekening2 = new RekeningBank("002", 2000);
+            let rekening3 = new RekeningBank("003", 3000);
+
+            // Setor uang dan tarik uang dari rekening
+            rekening1.setorUang(500);  // Setor 500 ke rekening 1
+            rekening1.tarikUang(200);  // Tarik 200 dari rekening 1
+            rekening2.setorUang(1000); // Setor 1000 ke rekening 2
+            rekening2.tarikUang(3000); // Tarik 3000 dari rekening 2 (saldo tidak cukup)
+            rekening3.cekSaldo();      // Cek saldo rekening 3
+
+            // Contoh penambahan rekening dengan nomor yang sama
+            let rekening4 = new RekeningBank("001", 1500); // Ini akan menghasilkan error
+        
+            console.log(error.message);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enkapsulasi </title>
+</head>
+<body>
+    <script>
+        // menggunakan metode privat
+         class PersegiPanjang {
+            #panjang; 
+            #lebar;   
+
+            constructor(panjang, lebar) {
+                this.panjangp = panjang; 
+                this.lebarp = lebar;     
+            }
+
+            get panjangp() {
+                return this.#panjang;
+            }
+
+            set panjangp(value) {
+                if (value < 0) {
+                    console.log("Ukuran tidak boleh kurang dari 0");
+                } else {
+                    this.#panjang = value;
+                }
+            }
+
+            get lebarp() {
+                return this.#lebar;
+            }
+
+            set lebarp(value) {
+                if (value < 0) {
+                    console.log("Ukuran tidak boleh kurang dari 0");
+                } else {
+                    this.#lebar = value;
+                }
+            }
+
+            // Metode
+            hitungLuas() {
+                return this.#panjang * this.#lebar;
+            }
+
+            hitungKeliling() {
+                return 2 * (this.#panjang + this.#lebar);
+            }
+        }
+
+       
+        const persegiPanjang = new PersegiPanjang(5, 6);
+        console.log("Panjang: " + persegiPanjang.panjangp);
+        console.log("Lebar: " + persegiPanjang.lebarp);
+
+        // Menghitung luas dan kelilingnya
+        console.log("Luas: " + persegiPanjang.hitungLuas());
+        console.log("Keliling: " + persegiPanjang.hitungKeliling());
+    </script>
+</body>
+</html>

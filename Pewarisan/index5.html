@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan oop</title>
+</head>
+<body>
+    <script>
+        class Employee{
+            constructor(nama, gaji){
+                this.nama = nama;
+                this.gaji = gaji;
+            }
+            // metode menghitung gaji tahunan
+        hitungGaji(){
+            console.log(`${this.nama} Gaji bulanannya ${this.gaji} jt`);
+            this.gaji *= 12;
+            console.log(`Gaji tahunan ${this.gaji}`);
+            
+        }
+    }
+        class Manager extends Employee{
+           constructor(nama, gaji, departemen){
+            super(nama, gaji)
+            this.departemen = departemen;
+           }
+        //    metode mengitung gaji jika dapet bonus 10%
+           hitungGaji(){
+              super.hitungGaji();
+              this.gaji *= 0.10;
+               console.log(`${this.departemen}`);
+               console.log(`Bonus 10% menjadi ${this.gaji}`); 
+           }
+        }
+        
+      const person1 = new Employee("davina", 40, "keuangan");
+      const person2 = new Manager("callysta", 5000000, "marketing");
+      person1.hitungGaji();
+      person2.hitungGaji();
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan oop</title>
+</head>
+<body>
+    <script>
+        // membuat parent class nya
+    class Product {
+    constructor(IdProduct, nama, harga) {
+        this.IdProduct = IdProduct;
+        this.nama = nama;
+        this.harga = harga;
+    }
+    // metode 
+    Hitungproduk(kuantitas) {
+        return kuantitas * this.harga;
+    }
+}
+// membuat subclass dengan override
+class ElektronikProduct extends Product { 
+    constructor(IdProduct, nama, harga, garansi) {
+        super(IdProduct, nama, harga); 
+        this.garansi = garansi;
+    }
+    Hitungproduk(kuantitas) {
+        return super.Hitungproduk(kuantitas); 
+    }
+}
+// membuat instance nhya
+const product1 = new ElektronikProduct(121, "Setrika", 40000, "5 tahun");
+const pembelian = product1.Hitungproduk(2);
+
+console.log(`Nama produk: ${product1.nama}`);
+console.log(`Harga produk: ${product1.harga}`);
+console.log(`Garansi produk: ${product1.garansi}`);
+console.log(`Total harga: ${pembelian}`);
+
+    </script>
+</body>
+</html>

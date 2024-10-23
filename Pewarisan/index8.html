@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan oop</title>
+</head>
+<body>
+    <script>
+      // membuat parent class nya
+        class Bank {
+  constructor(namaBank) {
+    this.namaBank = namaBank;
+    // dikosongin agar di instance nya saja di masukin data nya
+    this.kantorCabang = [];
+  }
+// metode tambah cabang
+  tambahCabang(cabangBaru) {
+    this.kantorCabang.push(cabangBaru);
+    console.log(`Cabang baru "${cabangBaru}" telah ditambahkan.`);
+  }
+// metode hapuscabang
+  hapusCabang(cabangDihapus) {
+    const index = this.kantorCabang.indexOf(cabangDihapus);
+    if (index !== -1) {
+      this.kantorCabang.splice(index, 1);
+      console.log(`Cabang "${cabangDihapus}" telah dihapus.`);
+    } else {
+      console.log(`Cabang "${cabangDihapus}" tidak ditemukan.`);
+    }
+  }
+// metode menampilakan semua cabang
+  tampilkanSemuaCabang() {
+    if (this.kantorCabang.length === 0) {
+      console.log(`Bank ${this.namaBank} belum memiliki cabang.`);
+    } else {
+      console.log(`Cabang-cabang Bank ${this.namaBank}:`);
+      this.kantorCabang.forEach(cabang => {
+        console.log('-', cabang);
+      });
+    }
+  }
+}
+
+// Membuat instance dari class Bank
+const bankSaya = new Bank("Bank Kita");
+
+// Menambahkan beberapa cabang
+bankSaya.tambahCabang("Cabang Utama");
+bankSaya.tambahCabang("Cabang Jakarta");
+bankSaya.tambahCabang("Cabang Bandung");
+
+// Menampilkan semua cabang
+bankSaya.tampilkanSemuaCabang();
+
+// Menghapus satu cabang
+bankSaya.hapusCabang("Cabang Jakarta");
+
+// Menampilkan semua cabang setelah penghapusan
+bankSaya.tampilkanSemuaCabang();
+    </script>
+</body>
+</html>

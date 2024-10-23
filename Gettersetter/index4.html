@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getter dan Setter soal no 5</title>
+</head>
+<body>
+    <script>
+        // membuat parent classnya 
+        class Buku {
+            constructor(JudulBuku, PenulisBuku, TahunTerbit) {
+                this.JudulBuku = JudulBuku;
+                this.PenulisBuku = PenulisBuku;
+                this.TahunTerbit = TahunTerbit;
+            }
+
+            get judul() {
+                return this.JudulBuku;
+            }
+
+            set judul(value) {
+                if (typeof value !== 'string' || value.trim() === '') {
+                    console.log('Judul harus diisi dengan valid');
+                } else {
+                    this.JudulBuku = value;
+                }
+            }
+
+            // metode
+            BukuDetails() {
+                console.log(`Buku ini berjudul "${this.JudulBuku}" yang ditulis oleh ${this.PenulisBuku}, terbit ${this.TahunTerbit}`);
+            }
+        }
+
+        // membuat sub classnya
+        class BukuElektronik extends Buku {
+            constructor(JudulBuku, PenulisBuku, TahunTerbit, HargaBuku) {
+                super(JudulBuku, PenulisBuku, TahunTerbit);
+                this.HargaBuku = HargaBuku;
+            }
+
+            get harga() {
+                return this.HargaBuku;
+            }
+
+            set harga(value) {
+                if (value <= 0) {
+                    console.log("Harga harus lebih dari 0");
+                } else {
+                    this.HargaBuku = value;
+                }
+            }
+
+            // membuat metode mengambil metode dari parent classnya
+            BukuDetails() {
+                super.BukuDetails();
+                console.log(`Harga buku ini ${this.HargaBuku}`);
+            }
+        }
+
+        // membuat instancenya
+        const detailBuku = new BukuElektronik("Kimi no nawa", "Makoto Shinkai", 2016, 50000);
+        console.log(detailBuku.judul);
+        
+        detailBuku.harga = 50000; // Mengatur harga yang valid
+        console.log(detailBuku.harga);
+
+        detailBuku.BukuDetails();
+    </script>
+</body>
+</html>

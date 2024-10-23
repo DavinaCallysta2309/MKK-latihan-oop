@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>latihan oop</title>
+</head>
+<body>
+    <script>
+        class AkunBank {
+            constructor(noRek, namaNasabah, saldo){
+                this.noRek = noRek;
+                this.namaNasabah = namaNasabah;
+                this.saldo = saldo;
+            }
+  menyetor(jumlah) {
+    this.saldo += jumlah;
+    console.log(`Uang sebesar ${jumlah} disetorkan. Saldo sekarang: ${this.saldo}`);
+  }
+
+  menarik(jumlah) {
+    if (jumlah > this.saldo) {
+      console.log(`${this.namaNasabah} Saldo tidak cukup untuk menarik ${jumlah}. Saldo sekarang: ${this.saldo}`);
+    } else {
+      this.saldo -= jumlah;
+      console.log(`Uang sebesar ${jumlah} ditarik. Saldo sekarang: ${this.saldo}`);
+    }
+  }
+
+  transfer(jumlah) {
+    if (jumlah > this.saldo) {
+      console.log(`Saldo tidak cukup untuk di transfer sebanyak ${jumlah}. Saldo anda sekarang: ${this.saldo}`);
+    } else {
+      this.saldo -= jumlah;
+      console.log(`Uang sebesar ${jumlah} telah di transfer!. Saldo anda sekarang: ${this.saldo}`);
+    }
+  }
+}
+  
+const rekening = new AkunBank("12329242", "Ultraman", 1000);
+rekening.menyetor(500);
+rekening.menarik(200); 
+rekening.transfer(100);
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan oop</title>
+</head>
+<body>
+    <script>
+        class Person{
+            // menyimpan parameter
+            constructor(Firstname, Lastname, Age){
+                this.Firstname = Firstname;
+                this.Lastname = Lastname;
+                this.Age = Age;
+    
+            }
+            // methode
+            Showdetails(){
+                   return "halo guys"
+            }
+               
+            
+        }
+        // membuat nama variabel 
+        const person = new Person("Davina", "Callysta", "17");
+        person.Showdetails();
+        console.log(`halo guys nama gua ${person.Firstname} ${person.Lastname} sekarang gua ${person.Age}`);
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan oop</title>
+</head>
+<body>
+    <script>
+       class RekeningBank {
+  constructor(nomorRekening, saldoAwal) {
+    this.nomorRekening = nomorRekening;
+    this.saldo = saldoAwal;
+  }
+
+  // Method untuk menyetor uang
+  setorUang(jumlah) {
+    this.saldo += jumlah;
+    console.log(`Uang sebesar ${jumlah} disetorkan.`);
+  }
+
+  // Method untuk menarik uang
+  tarikUang(jumlah) {
+    if (jumlah > this.saldo) {
+      console.log(`Saldo tidak cukup untuk menarik ${jumlah}.`);
+    } else {
+      this.saldo -= jumlah;
+      console.log(`Uang sebesar ${jumlah} ditarik.`);
+    }
+  }
+
+  // Method untuk menampilkan saldo
+  cekSaldo() {
+    console.log(`Saldo saat ini: ${this.saldo}`);
+  }
+}
+
+// Membuat 3 instance dari class RekeningBank
+const rekening1 = new RekeningBank("101", 1000);
+const rekening2 = new RekeningBank("202", 2000);
+const rekening3 = new RekeningBank("303", 3000);
+
+// Setor uang dan tarik uang dari rekening
+rekening1.setorUang(500);   
+rekening1.tarikUang(200);  
+rekening1.cekSaldo(); 
+    
+    </script>
+</body>
+</html>
